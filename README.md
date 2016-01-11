@@ -1,4 +1,9 @@
-### create Debian packages
+### install the package development tools
+```
+sudo apt-get install packaging-dev dh-make bzr-builddeb
+```
+
+### create the Debian packages
 ```
 ./autogen.sh
 fakeroot debian/rules binary
