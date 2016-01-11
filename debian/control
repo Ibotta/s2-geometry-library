@@ -27,12 +27,3 @@ Description: Library for Spherical Math
  The S2 Geometry Library is a spherical geometry library, very useful for 
  manipulating regions on the sphere (commonly on Earth) and indexing 
  geographical data.
-
-Package: python-s2
-Section: python
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libs2 (= ${binary:Version})
-Description: Python bindings for libs2
- The python-s2 package contains bindings for libs2, a library for spherical
- math.
-

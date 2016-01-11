@@ -25,3 +25,32 @@ Makefile.in
 *.sw*
 !*.swig
 
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.cuo
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+#debian package files
+**/debian/*.debhelper.log
+**/debian/files
+**/debian/*.debhelper
+**/debian/*.substvars
+**/debian/stamp-*
+obj-x86_64-linux-gnu
+
+**/debian/libs2/
+**/debian/libs2-dev/
+**/debian/tmp
+*.deb
+
+
