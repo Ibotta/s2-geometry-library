@@ -4,10 +4,5 @@
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = geometry
 
-# Build Python components only if requested
-if ENABLE_PYTHON_BUILD
-SUBDIRS += geometry/python
-endif
-
 EXTRA_DIST = autogen.sh
 

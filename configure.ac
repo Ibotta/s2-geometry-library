@@ -24,12 +24,6 @@ AX_CHECK_COMPILE_FLAG([-mmmx], [CXXFLAGS="$CXXFLAGS -mmmx"])
 AX_CHECK_COMPILE_FLAG([-msse], [CXXFLAGS="$CXXFLAGS -msse"])
 AX_CHECK_COMPILE_FLAG([-msse2], [CXXFLAGS="$CXXFLAGS -msse2"])
 
-# Knobs for configuration.
-AC_ARG_ENABLE([python],
-              [AS_HELP_STRING([--enable-python],
-                              [compile extensions for Python [default=no]])],
-              [enable_python_build=$enableval], [enable_python_build=no])
-
 # Checks for programs.
 AC_LANG([C++])
 AC_PROG_CXX
@@ -47,20 +41,6 @@ PKG_CHECK_MODULES(GFLAGS, libgflags)
 AC_CHECK_HEADERS([gflags/gflags.h], [],
                  AC_MSG_ERROR([gflags library is required. See INSTALL file.]))
 
-# Check to see if we need to build the Python modules
-have_swig=no
-AM_CONDITIONAL(ENABLE_PYTHON_BUILD, test "_$enable_python_build" = "_yes")
-if test "_$enable_python_build" = "_yes"; then
-    AM_PATH_PYTHON([3.2])
-    AX_PYTHON_DEVEL([>= '3.2'])
-    AX_PKG_SWIG([2.0.0], [have_swig=yes])
-    if test "$have_swig" = "yes"; then
-        AX_LIB_CRYPTO([yes])
-        AX_SWIG_ENABLE_CXX
-        AX_SWIG_PYTHON([yes])
-    fi
-fi
-
-AC_CONFIG_FILES([Makefile geometry/Makefile geometry/python/Makefile])
+AC_CONFIG_FILES([Makefile geometry/Makefile])
 AC_OUTPUT
 
